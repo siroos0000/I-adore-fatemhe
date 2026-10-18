@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I adore Fatemeh — برای ملکه قلبم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Great+Vibes&family=Vazirmatn:wght@300;400;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0e070f;
+  --bg2:#1a0f1e;
+  --cream:#fff7ec;
+  --pink:#ff4d6d;
+  --pink2:#ff8fa3;
+  --gold:#e8c9a0;
+  --gold2:#c9a86a;
+  --muted:rgba(255,247,236,.62);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Cormorant Garamond','Vazirmatn',serif;
+  overflow-x:hidden;
+  cursor:default;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index:9999;
+}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:var(--pink);border-radius:999px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+
+/* LOADER */
+#loader{
+  position:fixed; inset:0; background:var(--bg); z-index:99999;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transition:opacity .9s ease, visibility .9s;
+}
+#loader.out{opacity:0; visibility:hidden}
+.loader-heart{
+  width:80px; height:80px; position:relative; animation:beat 1.1s ease infinite;
+}
+.loader-heart::before, .loader-heart::after{
+  content:""; position:absolute; width:42px; height:64px; background:var(--pink); border-radius:42px 42px 0 0;
+}
+.loader-heart::before{left:19px; transform:rotate(-45deg); transform-origin:0 100%}
+.loader-heart::after{left:19px; transform:rotate(45deg); transform-origin:100% 100%}
+@keyframes beat{0%,100%{transform:scale(1)} 50%{transform:scale(1.12)}}
+.loader-text{margin-top:22px; font-family:'Great Vibes',cursive; font-size:28px; color:var(--gold); letter-spacing:.04em; opacity:.9}
+.loader-sub{font-size:11px; letter-spacing:.35em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+
+/* NAV */
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 36px; backdrop-filter:blur(12px);
+  background:linear-gradient(to bottom, rgba(14,7,15,.85), transparent);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{font-family:'Great Vibes',cursive; font-size:22px; color:var(--cream)}
+.nav-logo span{color:var(--pink)}
+.nav-links{display:flex; gap:22px; font-size:11px; letter-spacing:.22em; text-transform:uppercase}
+.nav-links a{color:var(--muted); text-decoration:none; transition:.3s}
+.nav-links a:hover{color:var(--cream)}
+
+/* HERO */
+.hero{
+  min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:120px 20px 60px; position:relative; overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(ellipse 900px 600px at 50% 10%, rgba(255,77,109,.18), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 85% 85%, rgba(232,201,160,.12), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 15% 90%, rgba(255,77,109,.08), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+.hero-eyebrow{
+  font-size:11px; letter-spacing:.42em; text-transform:uppercase; color:var(--gold);
+  border:1px solid rgba(232,201,160,.35); padding:8px 18px; border-radius:999px;
+  background:rgba(232,201,160,.08); backdrop-filter:blur(8px);
+  animation:fadeUp .8s ease both;
+}
+.hero h1{
+  margin-top:26px; font-family:'Instrument Serif',serif; font-weight:400;
+  font-size:clamp(52px, 9vw, 132px); line-height:.9; letter-spacing:-.02em;
+}
+.hero h1 i{font-family:'Great Vibes',cursive; color:var(--pink); font-weight:400; font-size:1.05em; display:inline-block; transform:rotate(-2deg)}
+.hero h1 .thin{font-weight:300; opacity:.92}
+.hero-sub{
+  margin-top:18px; font-family:'Vazirmatn',sans-serif; font-weight:300; font-size:clamp(14px,2vw,18px);
+  color:var(--muted); line-height:1.9; direction:rtl;
+}
+.hero-sub strong{color:var(--cream); font-weight:400}
+.hero-cta{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; justify-content:center}
+.btn{
+  appearance:none; border:none; cursor:pointer; border-radius:999px; padding:14px 28px;
+  font-family:'Cormorant Garamond',serif; font-size:13px; letter-spacing:.18em; text-transform:uppercase;
+  transition:.35s;
+}
+.btn-primary{background:var(--pink); color:white; box-shadow:0 8px 24px rgba(255,77,109,.35)}
+.btn-primary:hover{background:#ff2e55; transform:translateY(-2px); box-shadow:0 12px 32px rgba(255,77,109,.45)}
+.btn-ghost{background:transparent; color:var(--cream); border:1px solid rgba(255,255,255,.18)}
+.btn-ghost:hover{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.32)}
+.scroll-hint{
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px; opacity:.7;
+  animation:float 2.2s ease infinite;
+}
+.scroll-hint span{font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--muted)}
+.scroll-hint .line{width:1px; height:36px; background:linear-gradient(to bottom, var(--cream), transparent)}
+@keyframes fadeUp{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)}}
+
+/* SECTION */
+.section{padding:80px 24px; max-width:1200px; margin:0 auto; position:relative}
+.section-label{
+  display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom:16px;
+}
+.section-label::before, .section-label::after{content:""; height:1px; flex:1; max-width:80px; background:linear-gradient(to right, transparent, rgba(232,201,160,.3))}
+.section-label::after{background:linear-gradient(to left, transparent, rgba(232,201,160,.3))}
+.section-label span{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold)}
+.section-title{
+  text-align:center; font-family:'Instrument Serif',serif; font-weight:400;
+  font-size:clamp(32px,5vw,56px); line-height:1; margin-bottom:12px;
+}
+.section-title i{font-family:'Great Vibes',cursive; color:var(--pink); font-size:1.15em}
+.section-desc{text-align:center; color:var(--muted); font-size:15px; line-height:1.8; max-width:640px; margin:0 auto 40px; font-family:'Vazirmatn',sans-serif; direction:rtl}
+
+/* ---------- HEART OF LANGUAGES - NEW PRECISE HEART ---------- */
+.heart-stage{
+  position:relative; width:min(720px, 96vw); height:min(660px, 98vw); margin:0 auto;
+  display:flex; align-items:center; justify-content:center;
+}
+.heart-svg{
+  position:absolute; inset:0; width:100%; height:100%; pointer-events:none;
+}
+.heart-svg .heart-fill{
+  fill:rgba(255,77,109,.06); stroke:none;
+}
+.heart-svg .heart-stroke{
+  fill:none; stroke:rgba(255,77,109,.32); stroke-width:1.6; stroke-dasharray:7 7; opacity:.9;
+  filter:drop-shadow(0 0 10px rgba(255,77,109,.25));
+}
+.heart-svg .heart-stroke-solid{
+  fill:none; stroke:rgba(255,77,109,.14); stroke-width:1;
+}
+.heart-glow{
+  position:absolute; width:74%; height:70%; left:13%; top:16%;
+  background:radial-gradient(ellipse at 50% 50%, rgba(255,77,109,.18), transparent 72%);
+  filter:blur(20px); pointer-events:none; animation:pulseGlow 3s ease infinite;
+}
+@keyframes pulseGlow{0%,100%{opacity:.7; transform:scale(1)} 50%{opacity:1; transform:scale(1.05)}}
+
+.lang-cloud{
+  position:absolute; inset:0;
+}
+.lang-pill{
+  position:absolute; transform:translate(-50%, -50%);
+  padding:6px 11px; border-radius:999px; font-size:11.5px; line-height:1;
+  white-space:nowrap; box-shadow:0 4px 14px rgba(0,0,0,.14), 0 1px 0 rgba(255,255,255,.7) inset;
+  font-family:'Vazirmatn','Cormorant Garamond',sans-serif; font-weight:600;
+  transition:all .35s cubic-bezier(.16,1,.3,1); cursor:default;
+  animation:floatPill 4s ease infinite;
+  border:1px solid rgba(255,255,255,.0);
+}
+.lang-pill.pink{background:#ff4d6d; color:white; box-shadow:0 6px 18px rgba(255,77,109,.35)}
+.lang-pill.gold{background:#e8c9a0; color:#1a0f1e}
+.lang-pill.cream{background:rgba(255,247,236,.96); color:#1a0f1e}
+.lang-pill.rose{background:#ffd2dc; color:#7a1a2e}
+.lang-pill:hover{transform:translate(-50%, -50%) scale(1.14) rotate(0deg)!important; z-index:10!important; box-shadow:0 10px 28px rgba(0,0,0,.22); filter:brightness(1.05)}
+@keyframes floatPill{0%,100%{transform:translate(-50%, -50%) translateY(0)} 50%{transform:translate(-50%, -50%) translateY(-3px)}}
+
+/* controls */
+.heart-controls{display:flex; justify-content:center; gap:10px; margin-top:18px; flex-wrap:wrap}
+.chip{
+  font-size:11px; letter-spacing:.16em; text-transform:uppercase; padding:9px 16px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:var(--cream);
+  cursor:pointer; transition:.25s; font-family:'Cormorant Garamond',serif;
+}
+.chip.active, .chip:hover{background:var(--cream); color:var(--bg); border-color:var(--cream)}
+.heart-legend{text-align:center; margin-top:16px; font-family:'Vazirmatn',sans-serif; font-size:11px; color:var(--muted); letter-spacing:.04em}
+
+/* HORIZONTAL LOVE-LANGUAGE PANEL */
+.language-panel-wrap{max-width:920px;margin:0 auto;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(232,201,160,.2);border-radius:24px;padding:16px;box-shadow:0 24px 60px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.07)}
+.panel-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:0 4px 12px;color:var(--gold);font-family:'Vazirmatn',sans-serif;font-size:11px;letter-spacing:.04em}
+.language-panel{height:414px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--pink) rgba(255,255,255,.06);border-radius:16px;background:radial-gradient(ellipse at 12% 30%,rgba(255,77,109,.13),transparent 40%),rgba(8,4,10,.36);padding:12px;scroll-behavior:smooth;direction:ltr}
+.language-grid{position:relative;inset:auto;height:100%;width:max-content;display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,minmax(0,1fr));grid-auto-columns:190px;gap:9px;padding:2px}
+.language-panel::-webkit-scrollbar{height:8px}.language-panel::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--pink),var(--gold));border-radius:999px}.language-panel::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:999px}
+.lang-pill{position:relative;inset:auto;left:auto;top:auto;transform:none;z-index:auto;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:5px;min-width:0;padding:8px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.075);background:rgba(255,247,236,.055);color:var(--cream);font-family:'Vazirmatn',sans-serif;overflow:hidden;transition:transform .25s,background .25s,border-color .25s;animation:fadeUp .45s both}
+.lang-pill:hover{transform:translateY(-2px);background:rgba(255,77,109,.14);border-color:rgba(255,143,163,.4)}
+.lang-pill .lang-phrase{display:block;width:100%;font-size:11px;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:start;unicode-bidi:isolate;flex:none}.lang-pill .lang-name{display:block;font-size:9px;line-height:1.35;color:var(--gold);opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;unicode-bidi:isolate;flex:none}
+.lang-pill.pink{border-color:rgba(255,77,109,.24);background:rgba(255,77,109,.09)}.lang-pill.gold{border-color:rgba(232,201,160,.22);background:rgba(232,201,160,.07)}.lang-pill.rose{border-color:rgba(255,143,163,.25);background:rgba(255,143,163,.08)}
+.panel-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 4px 0;color:var(--muted);font-family:'Vazirmatn',sans-serif;font-size:10px;direction:rtl}.hint-arrow{direction:ltr;color:var(--pink2);letter-spacing:.12em}
+@media(max-width:600px){.language-panel-wrap{padding:10px;border-radius:18px}.language-panel{height:398px;padding:10px}.language-grid{grid-template-rows:repeat(4,minmax(0,1fr));grid-auto-columns:165px;gap:7px}.lang-pill{padding:7px 8px}.panel-topline{font-size:10px}.panel-hint{font-size:9px}}
+.moment-date{display:flex;flex-direction:column;align-items:flex-start;gap:5px}.moment-date span{font-family:'Vazirmatn',sans-serif;font-size:15px}.moment-date b{display:block;direction:ltr;unicode-bidi:isolate;white-space:nowrap;font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:.025em;color:var(--gold);font-weight:400}
+
+/* LETTER */
+.letter-wrap{
+  background:linear-gradient(180deg, #fffaf0 0%, #fff2d8 100%);
+  color:#2b1a12; border-radius:28px; padding:42px 36px; position:relative; overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,.28), 0 1px 0 rgba(255,255,255,.6) inset;
+  max-width:860px; margin:0 auto;
+}
+.letter-wrap::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:6px;
+  background:linear-gradient(90deg, var(--pink), #ffb86a, var(--gold), var(--pink));
+}
+.envelope-flap{
+  position:absolute; top:-1px; left:50%; transform:translateX(-50%);
+  width:120px; height:26px; background:#fffaf0; border-radius:0 0 18px 18px;
+  box-shadow:0 8px 16px rgba(0,0,0,.08); display:flex; align-items:center; justify-content:center;
+}
+.envelope-flap span{font-size:16px}
+.letter-head{
+  text-align:center; margin-bottom:28px; padding-top:10px;
+}
+.letter-head h3{font-family:'Great Vibes',cursive; font-size:42px; color:#8a2e3b; font-weight:400; line-height:1}
+.letter-head p{font-family:'Vazirmatn',sans-serif; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#a07a52; margin-top:8px}
+.letter-head .date-badge{display:flex; align-items:center; justify-content:center; gap:9px; flex-wrap:wrap; width:max-content; max-width:100%; margin:10px auto 0; background:rgba(255,77,109,.08); border:1px solid rgba(255,77,109,.18); color:#8a2e3b; padding:8px 14px; border-radius:999px; font-family:'Vazirmatn',sans-serif; font-size:11px; letter-spacing:0; line-height:1.5}.date-ltr{direction:ltr; unicode-bidi:isolate; white-space:nowrap; letter-spacing:.035em; font-variant-numeric:tabular-nums}
+.letter-body{
+  font-family:'Vazirmatn',sans-serif; font-size:16px; line-height:2.1; color:#3a2318; direction:rtl; text-align:justify;
+}
+.letter-body p{margin-bottom:16px}
+.letter-body .highlight{
+  background:linear-gradient(180deg, transparent 60%, rgba(255,77,109,.18) 60%); padding:0 4px; font-weight:700; color:#8a2e3b;
+}
+.letter-sign{
+  margin-top:28px; display:flex; justify-content:space-between; align-items:end; gap:20px; flex-wrap:wrap;
+  border-top:1px dashed rgba(0,0,0,.12); padding-top:22px;
+}
+.sign-name{font-family:'Great Vibes',cursive; font-size:32px; color:var(--pink); line-height:1}
+.sign-meta{font-size:12px; color:#8a7a6a; font-family:'Cormorant Garamond',serif; letter-spacing:.12em; text-transform:uppercase}
+
+/* MOMENTS */
+.moments{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px;
+}
+.moment{
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:20px;
+  padding:22px; backdrop-filter:blur(10px); transition:.3s; position:relative; overflow:hidden;
+}
+.moment::after{
+  content:""; position:absolute; inset:0; background:radial-gradient(400px 200px at 50% 0%, rgba(255,77,109,.12), transparent 70%); opacity:0; transition:.3s;
+}
+.moment:hover{transform:translateY(-4px); border-color:rgba(255,77,109,.22); background:rgba(255,255,255,.08)}
+.moment:hover::after{opacity:1}
+.moment-icon{width:40px; height:40px; border-radius:12px; display:grid; place-items:center; font-size:18px; background:rgba(255,77,109,.12); border:1px solid rgba(255,77,109,.18); margin-bottom:14px}
+.moment h4{font-family:'Instrument Serif',serif; font-size:18px; font-weight:400; margin-bottom:6px}
+.moment p{font-family:'Vazirmatn',sans-serif; font-size:13px; line-height:1.8; color:var(--muted); direction:rtl}
+.moment .num{position:absolute; top:14px; right:16px; font-family:'Instrument Serif',serif; font-size:42px; opacity:.06; line-height:1}
+
+/* COUNTER */
+.counter-bar{
+  margin-top:50px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+  border-radius:24px; padding:24px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+  backdrop-filter:blur(10px);
+}
+.counter-item{text-align:center; min-width:120px; flex:1; padding:10px; background:rgba(255,255,255,.04); border-radius:16px; border:1px solid rgba(255,255,255,.06)}
+.counter-item b{font-family:'Instrument Serif',serif; font-size:34px; color:var(--pink); font-weight:400; line-height:1; display:block}
+.counter-item b small{font-size:14px; color:var(--pink2)}
+.counter-item span{display:block; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+.counter-item.gold b{color:var(--gold)}
+.counter-foot{text-align:center; margin-top:12px; font-family:'Vazirmatn',sans-serif; font-size:12px; color:var(--muted); direction:rtl}
+
+/* FOOTER */
+footer{
+  text-align:center; padding:54px 20px 36px; border-top:1px solid rgba(255,255,255,.06); margin-top:40px;
+  background:radial-gradient(800px 300px at 50% 0%, rgba(255,77,109,.08), transparent 70%);
+}
+.footer-heart{font-size:22px; animation:beat 1.2s ease infinite; display:inline-block}
+.footer-title{font-family:'Great Vibes',cursive; font-size:28px; color:var(--cream); margin-top:10px}
+.footer-sub{font-family:'Vazirmatn',sans-serif; font-size:13px; color:var(--muted); direction:rtl; margin-top:8px; line-height:1.9}
+.footer-copy{margin-top:18px; font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,247,236,.35)}
+
+/* CANVAS */
+#heartsCanvas{position:fixed; inset:0; pointer-events:none; z-index:2; opacity:.9}
+
+/* MODAL */
+.modal{
+  position:fixed; inset:0; z-index:100; display:none; place-items:center; padding:20px;
+  background:rgba(8,4,10,.62); backdrop-filter:blur(10px);
+}
+.modal.open{display:grid}
+.modal-card{
+  background:linear-gradient(180deg, #fffaf0, #fff1cc); color:#2b1a12; border-radius:24px;
+  padding:32px 28px; max-width:520px; width:100%; text-align:center; position:relative;
+  box-shadow:0 24px 64px rgba(0,0,0,.35); animation:pop .4s cubic-bezier(.16,1,.3,1);
+}
+@keyframes pop{from{transform:scale(.92) translateY(10px); opacity:0} to{transform:scale(1) translateY(0); opacity:1}}
+.modal-card h3{font-family:'Great Vibes',cursive; font-size:36px; color:#8a2e3b; font-weight:400}
+.modal-card p{font-family:'Vazirmatn',sans-serif; direction:rtl; line-height:2; color:#4a2e1f; margin-top:12px; font-size:15px}
+.modal-close{
+  position:absolute; top:12px; right:12px; width:36px; height:36px; border-radius:50%;
+  border:1px solid rgba(0,0,0,.1); background:white; cursor:pointer; display:grid; place-items:center;
+}
+
+@media (max-width:900px){
+  .moments{grid-template-columns:1fr}
+  nav{padding:14px 18px}
+  .nav-links{display:none}
+  .heart-stage{height:560px}
+  .letter-wrap{padding:30px 22px}
+  .counter-item{min-width:90px}
+  .counter-item b{font-size:26px}
+}
+@media (max-width:480px){
+  .hero h1{font-size:52px}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-heart"></div>
+  <div class="loader-text">I adore Fatemeh</div>
+  <div class="loader-sub">برای ملکه قلبم — در حال آماده‌سازی سوپرایز</div>
+</div>
+
+<canvas id="heartsCanvas"></canvas>
+
+<nav>
+  <div class="nav-logo">I adore <span>Fatemeh</span> ♡</div>
+  <div class="nav-links">
+    <a href="#heart">قلب زبان‌ها</a>
+    <a href="#letter">نامه</a>
+    <a href="#moments">لحظه‌های ما</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">A love letter in every language — یک نامه عاشقانه به هر زبان</div>
+  <h1 style="animation:fadeUp .8s .12s both">
+    I <i>adore</i><br>
+    <span class="thin">Fatemeh</span>
+  </h1>
+  <p class="hero-sub" style="animation:fadeUp .8s .22s both">
+    هر تپشِ قلبم، اسم تو رو صدا می‌زنه.<br>
+    <strong>این سایت یه هدیه‌ست — فقط برای تو، ملکه‌ی قلبم 👑</strong>
+  </p>
+  <div class="hero-cta" style="animation:fadeUp .8s .32s both">
+    <button class="btn btn-primary" onclick="document.getElementById('heart').scrollIntoView({behavior:'smooth'})">ببین چقدر دوستت دارم ↓</button>
+    <button class="btn btn-ghost" onclick="burstHearts(28)">برام قلب بفرست ♡</button>
+  </div>
+  <div class="scroll-hint"><span>scroll</span><div class="line"></div></div>
+</section>
+
+<!-- HEART OF LANGUAGES -->
+<section id="heart" class="section">
+  <div class="section-label"><span>Love in every language — دوستت دارم، به زبان‌های دنیا</span></div>
+  <h2 class="section-title">یک جمله، <i>بی‌نهایت زبان</i></h2>
+  <p class="section-desc">این‌بار به‌جای قلب، یک گنجینه‌ی عاشقانه از زبان‌های دنیاست؛ داخل پنل افقی بکش و کشف کن هر زبان چطور می‌گوید: «فاطمه، دوستت دارم.»</p>
+  <div class="language-panel-wrap">
+    <div class="panel-topline"><span>♡ برای فاطمه، از امیرمحمد</span><span id="langCount">بیش از ۱۰۰ زبان عاشقانه</span></div>
+    <div class="language-panel" id="languagePanel" tabindex="0" aria-label="پنل افقی زبان‌های عاشقانه"><div class="language-grid" id="langCloud"></div></div>
+    <div class="panel-hint"><span>برای دیدن زبان‌های بیشتر، افقی اسکرول کن</span><span class="hint-arrow">← &nbsp; swipe &nbsp; →</span></div>
+  </div>
+  <div class="heart-controls"><button class="chip" onclick="burstHearts(18)">بارون قلبی 💘</button></div>
+</section>
+
+<!-- LETTER -->
+<section id="letter" class="section" style="padding-top:30px">
+  <div class="letter-wrap">
+    <div class="envelope-flap"><span>💌</span></div>
+    <div class="letter-head">
+      <h3>My dearest Fatemeh</h3>
+      <p>نامه‌ای که هیچ‌وقت قدیمی نمی‌شود</p>
+      <div class="date-badge" dir="rtl"><span>📅 روز آشنایی‌مون</span><b class="date-ltr" dir="ltr">24 September 2026&nbsp; · &nbsp;17:40</b></div>
+    </div>
+    <div class="letter-body" id="letterBody">
+      <p>فاطمه‌ی عزیزم،</p>
+      <p>اگه می‌تونستم، آسمون رو برات می‌آوردم پایین — ولی دیدم <span class="highlight">خودِ تو آسمونِ منی</span>. هر روز که می‌گذره، بیشتر می‌فهمم چرا قلبم فقط با اسم تو آروم می‌گیره.</p>
+      <p>این قلبی که بالا می‌بینی، فقط یه انیمیشن نیست. هر کدوم از اون جمله‌ها، یه باره که دلم خواسته به زبونِ دنیا فریاد بزنم: <span class="highlight">من عاشق فاطمه هستم</span>. به فارسی، انگلیسی، فرانسوی، عربی، ترکی، ژاپنی... چون یه زبون برای گفتنِ دوستت دارم کافی نیست.</p>
+      <p>از اون عصرِ پنجشنبه، <span class="highlight">۲۴ سپتامبر ۲۰۲۶، ساعت ۱۷:۴۰</span> که قصه‌ی ما شروع شد، تا همین لحظه، هر ثانیه‌ش برام یه هدیه بوده. شاید کیلومترها بین ما فاصله باشه، اما هیچ فاصله‌ای نمی‌تونه از نزدیکیِ تو به قلبم کم کنه.</p>
+      <p>دلم برای روزی تنگه که دیگه لازم نباشه دلتنگت بشم؛ روزی که به‌جای پیام و تماس، دستت رو بگیرم و بگم: <span class="highlight">بالاخره کنارتم، فاطمه‌م.</span> تا اون روز، هر تماس، هر پیام و هر لحظه‌ای که منتظر دیدنت می‌مونم، یادآوری می‌کنه که تو ارزشِ تمام این فاصله رو داری.</p>
+      <p>تو ملکه‌ی قلب منی؛ فاصله فقط روی نقشه‌ست، نه بین دل‌هامون. <span class="highlight">دوستت دارم، از اینجا تا هر جایی که تویی — و تا همیشه.</span></p>
+      <p>قول می‌دم هر تپش قلبم، حتی از دور، فقط برای تو باشه.</p>
+      <p style="text-align:left; direction:ltr; font-family:'Great Vibes',cursive; font-size:26px; color:#8a2e3b; margin-top:10px">All my love,</p>
+    </div>
+    <div class="letter-sign">
+      <div>
+        <div class="sign-name">Amir Mohammad ♡</div>
+        <div class="sign-meta">از دور، با تمامِ قلبم — برای فاطمه، از امیرمحمد</div>
+      </div>
+      <button class="btn btn-primary" style="padding:12px 22px; font-size:12px" onclick="openModal()">نامه محرمانه؟ 💋</button>
+    </div>
+  </div>
+
+  <div class="moments" id="moments">
+    <div class="moment">
+      <div class="num">01</div>
+      <div class="moment-icon">🌙</div>
+      <h4 class="moment-date"><span>روز آشنایی‌مون</span><b dir="ltr">24 Sep 2026&nbsp; · &nbsp;17:40</b></h4>
+      <p>از همون لحظه‌ای که قصه‌مون شروع شد، حتی فاصله هم نتونست جلوی نزدیک‌تر شدن دل‌هامون رو بگیره.</p>
+    </div>
+    <div class="moment">
+      <div class="num">02</div>
+      <div class="moment-icon">📞</div>
+      <h4>از دور، کنار هم</h4>
+      <p>هر پیام و هر تماس، پلی می‌شه بین دنیای من و تو؛ تا روزی که فاصله فقط یه خاطره باشه.</p>
+    </div>
+    <div class="moment">
+      <div class="num">03</div>
+      <div class="moment-icon">👑</div>
+      <h4>ملکه‌ی قلبم</h4>
+      <p>تو فقط دختر مورد علاقه‌م نیستی — تو ملکه‌ای هستی که تاجش رو قلبم ساخته.</p>
+    </div>
+  </div>
+
+  <div class="counter-bar" id="counterBar">
+    <div class="counter-item"><b id="c-days">—</b><span>روز عاشقی</span></div>
+    <div class="counter-item"><b id="c-hours">—</b><span>ساعت</span></div>
+    <div class="counter-item"><b id="c-mins">—</b><span>دقیقه</span></div>
+    <div class="counter-item"><b id="c-secs">—</b><span>ثانیه</span></div>
+    <div class="counter-item gold"><b id="c-beats">—</b><span>تپش قلب برای تو</span></div>
+  </div>
+  <div class="counter-foot" id="counterFoot">از ۲۴ سپتامبر ۲۰۲۶، ۱۷:۴۰ تا الان — و تا بی‌نهایت ادامه دارد ∞</div>
+</section>
+
+<footer>
+  <div class="footer-heart">♡</div>
+  <div class="footer-title">I adore Fatemeh, forever & always</div>
+  <p class="footer-sub">این سایت با عشق، با اشک شوق، و با هزار تا «دوستت دارم» ساخته شد. فقط برای تو.<br>هر قلبی که تو این صفحه می‌بینی، یه بوسه‌ست که از راه دور برات فرستادم 💋</p>
+  <div class="footer-copy">made with ♡ for my queen — Fatemeh • 24 Sep 2026 17:40 → ∞ • all my love is yours</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="if(event.target===this) closeModal()">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>یه راز کوچولو...</h3>
+    <p>
+      این یه قولِ کوچیک از امیرمحمده: هر وقت دلتنگ شدی، یادت بیاد که همین آسمون بالای سرمون رو هر دومون می‌بینیم — و زیر همین آسمون، یه دل هست که بی‌وقفه به یاد تو می‌تپه.<br><br>
+      <strong style="color:var(--pink)">فاصله موقتیه؛ تویی که انتخابِ همیشگیِ قلبمی.</strong><br>
+      تا روزی که دوباره کنارت باشم، هر شب یه بوسه از دور برات می‌فرستم 🤍
+    </p>
+    <button class="btn btn-primary" style="margin-top:18px" onclick="closeModal(); burstHearts(30)">این بوسه رو گرفتم 💋</button>
+  </div>
+</div>
+
+<script>
+// ---------- LOADER ----------
+window.addEventListener('load', ()=> setTimeout(()=> document.getElementById('loader').classList.add('out'), 900));
+
+// ---------- LANGUAGES (corrected name) ----------
+const languages = [
+["من عاشق فاطمه هستم","فارسی"],["I love you, Fatemeh","English"],["Je t’aime, Fatemeh","Français"],["Ich liebe dich, Fatemeh","Deutsch"],["Te quiero, Fatemeh","Español"],["Ti amo, Fatemeh","Italiano"],["Amo-te, Fatemeh","Português"],["أنا أحبك يا فاطمة","العربية"],["Seni seviyorum, Fatemeh","Türkçe"],["Я люблю тебя, Фатеме","Русский"],["愛してるよ、ファテメ","日本語"],["사랑해, 파테메","한국어"],["Ik hou van je, Fatemeh","Nederlands"],["Jag älskar dig, Fatemeh","Svenska"],["Jeg elsker dig, Fatemeh","Dansk"],["Kocham cię, Fatemeh","Polski"],["Miluji tě, Fatemeh","Čeština"],["Volim te, Fatemeh","Hrvatski"],["Te iubesc, Fatemeh","Română"],["Szeretlek, Fatemeh","Magyar"],["Σ’ αγαπώ, Fatemeh","Ελληνικά"],["אני אוהב אותך, פאטמה","עברית"],["मैं तुमसे प्यार करता हूँ, फातिमा","हिन्दी"],["我爱你，法蒂玛","中文"],["ฉันรักคุณ ฟาเตเมห์","ไทย"],["Mahal kita, Fatemeh","Filipino / Tagalog"],["Mahal kita, Fatemeh","Cebuano"],["Aku cinta kamu, Fatemeh","Bahasa Indonesia"],["Saya cinta padamu, Fatemeh","Bahasa Melayu"],["Tôi yêu em, Fatemeh","Tiếng Việt"],["Мен сені сүйемін, Фатима","Қазақша"],["Ман туро дӯст медорам, Фотима","Тоҷикӣ"],["Ես քեզ սիրում եմ, Ֆաթիմե","Հայերեն"],["მიყვარხარ, ფატიმა","ქართული"],["Volim te, Fatemeh","Српски"],["Те сакам, Фатиме","Македонски"],["Te amo, Fatemeh","Català"],["Maite zaitut, Fatemeh","Euskara"],["Rwy’n dy garu di, Fatemeh","Cymraeg"],["Tá grá agam duit, Fatemeh","Gaeilge"],["Mi amas vin, Fatemeh","Esperanto"],["Ég elska þig, Fatemeh","Íslenska"],["Eg elskar deg, Fatemeh","Norsk"],["Ma armastan sind, Fatemeh","Eesti"],["Aš tave myliu, Fatemeh","Lietuvių"],["Es tevi mīlu, Fatemeh","Latviešu"],["Ljubim te, Fatemeh","Slovenščina"],["Te amo, Fatemeh","Latina"],["Seni seviyorum, Fatemeh","Azərbaycanca"],["Men seni sevaman, Fotima","O‘zbekcha"],["Ман туро дӯст медорам, Фотима","Тоҷикӣ ۲"],["আমি তোমাকে ভালোবাসি, ফাতেমা","বাংলা"],["ਮੈਂ ਤੈਨੂੰ ਪਿਆਰ ਕਰਦਾ ਹਾਂ, ਫਾਤਿਮਾ","ਪੰਜਾਬੀ"],["હું તને પ્રેમ કરું છું, ફાતિમા","ગુજરાતી"],["म तिमीलाई माया गर्छु, फातिमा","नेपाली"],["நான் உன்னை காதலிக்கிறேன், பாத்திமா","தமிழ்"],["నేను నిన్ను ప్రేమిస్తున్నాను, ఫాతిమా","తెలుగు"],["ನಾನು ನಿನ್ನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ, ಫಾತಿಮಾ","ಕನ್ನಡ"],["ഞാൻ നിന്നെ സ്നേഹിക്കുന്നു, ഫാത്തിമ","മലയാളം"],["मी तुझ्यावर प्रेम करतो, फातिमा","मराठी"],["እወድሻለሁ ፋጢማ","አማርኛ"],["Ndinokuda, Fatemeh","ChiShona"],["Ngiyakuthanda, Fatemeh","isiZulu"],["Ndiyakuthanda, Fatemeh","isiXhosa"],["Mo nifẹ rẹ, Fatemeh","Yorùbá"],["A hụrụ m gị n’anya, Fatemeh","Igbo"],["Ina son ki, Fatemeh","Hausa"],["Ndagukunda, Fatemeh","Kinyarwanda"],["Nkwagala, Fatemeh","Luganda"],["Nakupenda, Fatemeh","Kiswahili"],["Ke a go rata, Fatemeh","Sesotho"],["Mwen renmen ou, Fatemeh","Kreyòl ayisyen"],["Aloha au iā ʻoe, Fatemeh","ʻŌlelo Hawaiʻi"],["Aroha ahau ki a koe, Fatemeh","Te reo Māori"],["Ou te alofa ia te oe, Fatemeh","Gagana Sāmoa"],["Au domoni iko, Fatemeh","Vosa Vakaviti"],["’Oku ou ’ofa atu, Fatemeh","Lea faka-Tonga"],["Ua here au ia oe, Fatemeh","Reo Tahiti"],["M’innamor di te, Fatemeh","Corsu"],["Ik hâld fan dy, Fatemeh","Frysk"],["T’estimo molt, Fatemeh","Valencià"],["Ma armastan sind, Fatemeh","Võro"],["Te iubesc, Fatemeh","Aromanian"],["Miluji tě, Fatemeh","Slovenčina"],["Volim te, Fatemeh","Bosanski"],["Te dua, Fatemeh","Shqip"],["Të dua, Fatemeh","Gheg Albanian"],["Te amo, Fatemeh","Asturianu"],["Mi te amo, Fatemeh","Aragonés"],["Me gustas mucho, Fatemeh","Papiamento"],["Mwen enmen’w, Fatemeh","Sranan Tongo"],["Ndagukunda, Fatemeh","Kirundi"],["Nalingi yo, Fatemeh","Lingála"],["Ndinokuda, Fatemeh","chiShona ۲"],["Ke a go rata, Fatemeh","Setswana"],["Ndza ku randza, Fatemeh","itsonga"],["Nakupenda sana, Fatemeh","Kiswahili ۲"],["Aroha nui, Fatemeh","Māori ۲"],["Taim i lavim yu, Fatemeh","Tok Pisin"],["Mi lavem yu, Fatemeh","Bislama"],["Ou te alofa ia te oe, Fatemeh","Samoan ۲"],["Aloha wau iā ʻoe, Fatemeh","Hawaiian ۲"],["Ndagukunda cyane, Fatemeh","Kinyarwanda ۲"],["Mwen renmen ou anpil, Fatemeh","Haitian Creole ۲"],["Te quiero mucho, Fatemeh","Español latino"],["Eu te amo, Fatemeh","Português brasileiro"],["J’aime beaucoup, Fatemeh","Français canadien"],["我爱你，法蒂玛","中文（简体）"],["我愛你，法蒂瑪","中文（繁體）"],["사랑합니다, 파테메","한국어 존댓말"],["愛しています、ファテメ","日本語 丁寧形"],["أحبك كثيراً يا فاطمة","العربية ٢"],["मैं तुमसे बहुत प्यार करता हूँ, फातिमा","हिन्दी २"],["Amo-te muito, Fatemeh","Galego"]
+].map(([txt,lang],i)=>({txt,lang,cls:['pink','cream','gold','rose'][i%4]}));
+
+const cloud=document.getElementById('langCloud');
+function renderLangs(){
+  cloud.innerHTML='';
+  languages.forEach((l,i)=>{
+    const el=document.createElement('div');
+    el.className=`lang-pill ${l.cls}`;
+    const phrase=document.createElement('span'); phrase.className='lang-phrase'; phrase.textContent=l.txt; phrase.dir='auto';
+    const name=document.createElement('span'); name.className='lang-name'; name.textContent=l.lang; name.dir='auto';
+    el.append(phrase,name); el.title=`${l.lang}: ${l.txt}`;
+    el.style.animationDelay=Math.min(i*.012,.7)+'s';
+    el.addEventListener('click',()=>popLang(l));
+    cloud.appendChild(el);
+  });
+  document.getElementById('langCount').textContent=`${languages.length.toLocaleString('fa-IR')} زبان عاشقانه`;
+}
+renderLangs();
+
+function popLang(l){
+  burstHearts(10);
+  const t=document.createElement('div');
+  t.textContent=`♡ ${l.txt} — ${l.lang}`;
+  t.style.cssText='position:fixed;left:50%;top:18px;transform:translateX(-50%);background:var(--cream);color:#1a0f1e;padding:10px 18px;border-radius:999px;font-family:Vazirmatn,sans-serif;font-size:13px;box-shadow:0 12px 28px rgba(0,0,0,.2);z-index:99;animation:fadeUp .4s both';
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(-10px)';},1800);
+  setTimeout(()=>t.remove(),2200);
+}
+
+// CANVAS
+const canvas=document.getElementById('heartsCanvas');
+const ctx=canvas.getContext('2d');
+let W,H, particles=[];
+function resize(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }
+resize(); addEventListener('resize', resize);
+function heartPath(ctx, x, y, s){
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.bezierCurveTo(x, y- s*0.6, x- s*0.9, y- s*0.9, x- s*0.9, y- s*0.4);
+  ctx.bezierCurveTo(x- s*0.9, y+ s*0.2, x, y+ s*0.7, x, y+ s*0.9);
+  ctx.bezierCurveTo(x, y+ s*0.7, x+ s*0.9, y+ s*0.2, x+ s*0.9, y- s*0.4);
+  ctx.bezierCurveTo(x+ s*0.9, y- s*0.9, x, y- s*0.6, x, y);
+  ctx.closePath();
+}
+function addHeart(x,y, opts={}){
+  particles.push({
+    x: x ?? Math.random()*W,
+    y: y ?? H+20,
+    vx:(Math.random()-0.5)*1.2,
+    vy: -(1.2 + Math.random()*2.2),
+    s: opts.s ?? (10+Math.random()*16),
+    rot: Math.random()*20-10,
+    vr:(Math.random()-0.5)*1.5,
+    a:1,
+    col: opts.col ?? (Math.random()<0.5 ? '#ff4d6d' : '#e8c9a0'),
+    life:0
+  });
+}
+function burstHearts(n=12){
+  const cx=innerWidth/2, cy=innerHeight/2;
+  for(let i=0;i<n;i++) addHeart(cx + (Math.random()-0.5)*120, cy + (Math.random()-0.5)*80, {s: 12+Math.random()*14});
+}
+function loop(){
+  ctx.clearRect(0,0,W,H);
+  if(Math.random()<0.045) addHeart();
+  for(let i=particles.length-1;i>=0;i--){
+    const p=particles[i];
+    p.x+=p.vx; p.y+=p.vy; p.vy+=0.018; p.rot+=p.vr*0.02; p.life++; p.a-=0.0035;
+    if(p.a<=0 || p.y>H+40){ particles.splice(i,1); continue; }
+    ctx.save();
+    ctx.globalAlpha=Math.max(0,p.a);
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot*Math.PI/180);
+    ctx.fillStyle=p.col;
+    ctx.shadowColor=p.col; ctx.shadowBlur=8;
+    heartPath(ctx,0,0,p.s);
+    ctx.fill();
+    ctx.restore();
+  }
+  requestAnimationFrame(loop);
+}
+loop();
+setTimeout(()=>burstHearts(18), 1200);
+
+// ---------- COUNTER - exact from 24 Sep 2026 17:40 Tehran ----------
+const startDate = new Date('2026-09-24T17:40:00+03:30'); // Tehran time - روزی که آشنا شدید
+
+function updateCounter(){
+  const now = new Date();
+  let diff = now - startDate;
+  if(diff < 0) diff = 0;
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff / 3600000);
+  const mins = Math.floor(diff / 60000);
+  const secs = Math.floor(diff / 1000);
+  const beats = Math.floor(diff / 800); // ~75 bpm
+
+  document.getElementById('c-days').innerHTML = days.toLocaleString('fa-IR') + ' <small>روز</small>';
+  document.getElementById('c-hours').innerHTML = (hours % 24).toString().padStart(2,'0') + ' <small>ساعت</small>';
+  document.getElementById('c-mins').innerHTML = (mins % 60).toString().padStart(2,'0') + ' <small>دقیقه</small>';
+  document.getElementById('c-secs').innerHTML = (secs % 60).toString().padStart(2,'0') + ' <small>ثانیه</small>';
+  document.getElementById('c-beats').innerHTML = beats.toLocaleString('fa-IR');
+  
+  // also update foot with precise
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  document.getElementById('counterFoot').textContent = `از ۲۴ سپتامبر ۲۰۲۶، ساعت ۱۷:۴۰ تا الان: ${d} روز و ${h} ساعت و ${m} دقیقه عاشقی — و تا بی‌نهایت ادامه دارد ∞`;
+}
+updateCounter();
+setInterval(updateCounter, 1000);
+
+// MODAL
+function openModal(){ document.getElementById('modal').classList.add('open'); }
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+},{threshold:.12});
+document.querySelectorAll('.moment, .letter-wrap, .counter-bar').forEach(el=>{
+  el.style.opacity='0'; el.style.transform='translateY(14px)'; el.style.transition='all .7s cubic-bezier(.16,1,.3,1)';
+  obs.observe(el);
+});
+
+// click anywhere
+let clickCount=0;
+document.addEventListener('click', e=>{
+  if(e.target.closest('button, a, .lang-pill, .chip')) return;
+  clickCount++;
+  addHeart(e.clientX, e.clientY, {s: 14+Math.random()*10});
+  if(clickCount===7){
+    const msg=document.createElement('div');
+    msg.textContent='هر کلیکت یه قلب برای فاطمه‌ست ♡';
+    msg.style.cssText='position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--pink);color:white;padding:10px 18px;border-radius:999px;font-family:Vazirmatn,sans-serif;font-size:13px;z-index:90';
+    document.body.appendChild(msg);
+    setTimeout(()=>msg.remove(), 2200);
+  }
+});
+</script>
+</body>
+</html>
